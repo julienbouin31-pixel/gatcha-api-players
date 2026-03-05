@@ -22,7 +22,7 @@ public class GatchaApiPlayersApplication {
 
             // Création du premier joueur (id: valentin)
             PlayerEntity p1 = new PlayerEntity();
-            p1.setId("valentin");
+            p1.setId("pablo");
             p1.setLevel(1);
             p1.setExperience(0);
             // On utilise la logique métier de l'entité pour le seuil d'XP [cite: 17, 18, 19]
@@ -37,12 +37,12 @@ public class GatchaApiPlayersApplication {
             p2.setNextLevelExperience(p2.calculateRequiredXpForLevel(6));
             p2.setMonstres(List.of("m-999"));
 
-            // Sauvegarde en base MongoDB [cite: 22]
+            // Sauvegarde en base MongoDB
             playerRepository.saveAll(List.of(p1, p2));
 
             System.out.println("--------------------------------------");
             System.out.println("Base de données initialisée avec succès");
-            System.out.println("Joueurs créés : valentin, test_user");
+            System.out.println("Joueurs créés : pablo, test_user");
             System.out.println("--------------------------------------");
         };
     }

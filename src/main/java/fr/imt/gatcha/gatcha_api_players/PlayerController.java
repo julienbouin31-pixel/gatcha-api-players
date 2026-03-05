@@ -18,9 +18,9 @@ public class PlayerController {
     }
 
     @GetMapping("/getProfile")
-    public ResponseEntity<?> getProfile(@RequestParam String id) {
+    public ResponseEntity<?> getProfile(@RequestHeader("Authorization") String token) {
         try{
-            PlayerResponse playerResponse =  playerService.getProfile(id);
+            PlayerResponse playerResponse =  playerService.getProfile(token);
             return ResponseEntity.ok(playerResponse);
         } catch (RuntimeException e) {
             return ResponseEntity.status(401).body(Map.of(
@@ -29,6 +29,4 @@ public class PlayerController {
             ));
         }
     }
-
-
 }
